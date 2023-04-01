@@ -13,6 +13,7 @@ function Main() {
                             <button
                                 className="profile__avatar-edit-button"
                                 type="button"
+                                onClick={handleEditAvatarClick}
                             ></button>
                         </div>
                     </div>
@@ -21,6 +22,7 @@ function Main() {
                         <button
                             className="profile__edit-button"
                             type="button"
+                            onClick={handleEditProfileClick}
                         ></button>
                         <p className="profile__subtitle">
                             Исследователь океана
@@ -28,13 +30,32 @@ function Main() {
                     </div>
                 </div>
 
-                <button className="profile__add-button" type="button"></button>
+                <button
+                    className="profile__add-button"
+                    type="button"
+                    onClick={handleAddPlaceClick}
+                ></button>
             </section>
             <section className="page__cards">
                 <ul className="cards"></ul>
             </section>
         </main>
     );
+
+    function handleEditAvatarClick() {
+        const popupAvatar = document.querySelector('.popup_type_avatar');
+        popupAvatar.classList.add('popup_opened');
+    }
+
+    function handleEditProfileClick() {
+        const popupProfile = document.querySelector('.popup_type_profile');
+        popupProfile.classList.add('popup_opened');
+    }
+
+    function handleAddPlaceClick() {
+        const popupCard = document.querySelector('.popup_type_card');
+        popupCard.classList.add('popup_opened');
+    }
 }
 
 export default Main;
