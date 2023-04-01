@@ -80,8 +80,6 @@
 
 @import url(./blocks/popup/__content/popup__content.css);
 
-@import url(./blocks/popup/__avatar-content/popup__avatar-content.css);
-
 @import url(./blocks/popup/__delete-card-content/popup__delete-card-content.css);
 
 @import url(./blocks/popup/__title/popup__title.css);
@@ -99,10 +97,6 @@
 @import url(./blocks/popup/__input/_type/_error/popup__input_type_error.css);
 
 @import url(./blocks/popup/__input/_type/_name/popup__input_type_name.css);
-
-@import url(./blocks/popup/__save-button/popup__save-button.css);
-
-@import url(./blocks/popup/__create-button/popup__create-button.css);
 
 @import url(./blocks/popup/__delete-button/popup__delete-button.css);
 
