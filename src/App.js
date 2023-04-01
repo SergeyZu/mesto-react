@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './images/logo.svg';
 
 function App() {
     return (
@@ -7,7 +7,7 @@ function App() {
             <header class="header page__header">
                 <img
                     class="header__logo"
-                    src="<%=require('./images/logo.svg')%>"
+                    src={logo}
                     alt="Логотип Mesto Russia"
                 />
             </header>
