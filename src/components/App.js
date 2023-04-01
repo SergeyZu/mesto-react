@@ -2,6 +2,8 @@ import React from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 function App() {
     return (
@@ -10,7 +12,14 @@ function App() {
             <Main />
             <Footer />
 
-            <section className="popup popup_type_avatar">
+            {/* Попап Аватар */}
+            <PopupWithForm
+                name="avatar"
+                title="Обновить аватар"
+                btnText="Сохранить"
+            />
+
+            {/* <section className="popup popup_type_avatar">
                 <div className="popup__container popup__container_middle-form">
                     <button
                         className="popup__close-button"
@@ -42,9 +51,16 @@ function App() {
                         </button>
                     </form>
                 </div>
-            </section>
+            </section> */}
 
-            <section className="popup popup_type_profile">
+            {/* Попап Профиль */}
+            <PopupWithForm
+                name="profile"
+                title="Редактировать профиль"
+                btnText="Сохранить"
+            />
+
+            {/* <section className="popup popup_type_profile">
                 <div className="popup__container">
                     <button
                         className="popup__close-button"
@@ -90,8 +106,12 @@ function App() {
                         </button>
                     </form>
                 </div>
-            </section>
-            <section className="popup popup_type_card">
+            </section> */}
+
+            {/* Попап Карточка */}
+            <PopupWithForm name="card" title="Новое место" btnText="Создать" />
+
+            {/* <section className="popup popup_type_card">
                 <div className="popup__container">
                     <button
                         className="popup__close-button"
@@ -136,9 +156,16 @@ function App() {
                         </button>
                     </form>
                 </div>
-            </section>
+            </section> */}
 
-            <section className="popup popup_type_delete-card">
+            {/* Попап подтверждения удаления карточки */}
+            <PopupWithForm
+                name="delete-card"
+                title="Вы уверены?"
+                btnText="Да"
+            />
+
+            {/* <section className="popup popup_type_delete-card">
                 <div className="popup__container popup__container_low-form">
                     <button
                         className="popup__close-button"
@@ -159,9 +186,11 @@ function App() {
                         </button>
                     </form>
                 </div>
-            </section>
+            </section> */}
 
-            <section className="popup popup_type_image">
+            {/* Попап Image */}
+            <ImagePopup />
+            {/* <section className="popup popup_type_image">
                 <div className="popup__container popup__container_type_image">
                     <button
                         className="popup__close-button"
@@ -170,7 +199,7 @@ function App() {
                     <img className="popup__image" src="#" alt="#" />
                     <h2 className="popup__title popup__title_type_image"></h2>
                 </div>
-            </section>
+            </section> */}
 
             <template id="card-template">
                 <li className="card">
