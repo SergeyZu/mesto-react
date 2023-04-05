@@ -6,19 +6,27 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 
 function App() {
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
+        React.useState(false);
     const handleEditAvatarClick = () => {
-        const popupAvatar = document.querySelector('.popup_type_avatar');
-        popupAvatar.classList.add('popup_opened');
+        setIsEditAvatarPopupOpen(true);
+        // const popupAvatar = document.querySelector('.popup_type_avatar');
+        // popupAvatar.classList.add('popup_opened');
     };
 
+    const [isEditProfilePopupOpen, setisEditProfilePopupOpen] =
+        React.useState(false);
     const handleEditProfileClick = () => {
-        const popupProfile = document.querySelector('.popup_type_profile');
-        popupProfile.classList.add('popup_opened');
+        setisEditProfilePopupOpen(true);
+        // const popupProfile = document.querySelector('.popup_type_profile');
+        // popupProfile.classList.add('popup_opened');
     };
 
+    const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
     const handleAddPlaceClick = () => {
-        const popupCard = document.querySelector('.popup_type_card');
-        popupCard.classList.add('popup_opened');
+        setisAddPlacePopupOpen(true);
+        // const popupCard = document.querySelector('.popup_type_card');
+        // popupCard.classList.add('popup_opened');
     };
 
     return (
@@ -32,6 +40,7 @@ function App() {
             <Footer />
 
             <PopupWithForm
+                isOpen={isEditAvatarPopupOpen}
                 name="avatar"
                 title="Обновить аватар"
                 btnText="Сохранить"
@@ -50,6 +59,7 @@ function App() {
             </PopupWithForm>
 
             <PopupWithForm
+                isOpen={isEditProfilePopupOpen}
                 name="profile"
                 title="Редактировать профиль"
                 btnText="Сохранить"
@@ -82,7 +92,12 @@ function App() {
                 </div>
             </PopupWithForm>
 
-            <PopupWithForm name="card" title="Новое место" btnText="Создать">
+            <PopupWithForm
+                isOpen={isAddPlacePopupOpen}
+                name="card"
+                title="Новое место"
+                btnText="Создать"
+            >
                 <div className="popup__field">
                     <input
                         id="title-input"
