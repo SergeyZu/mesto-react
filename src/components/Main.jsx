@@ -1,4 +1,4 @@
-function Main(props) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
     return (
         <main className="content">
             <section className="profile page__profile">
@@ -13,7 +13,7 @@ function Main(props) {
                             <button
                                 className="profile__avatar-edit-button"
                                 type="button"
-                                onClick={props.onEditAvatar}
+                                onClick={onEditAvatar}
                             ></button>
                         </div>
                     </div>
@@ -22,7 +22,7 @@ function Main(props) {
                         <button
                             className="profile__edit-button"
                             type="button"
-                            onClick={props.onEditProfile}
+                            onClick={onEditProfile}
                         ></button>
                         <p className="profile__subtitle">
                             Исследователь океана
@@ -33,7 +33,7 @@ function Main(props) {
                 <button
                     className="profile__add-button"
                     type="button"
-                    onClick={props.onAddPlace}
+                    onClick={onAddPlace}
                 ></button>
             </section>
             <section className="page__cards">
@@ -41,21 +41,6 @@ function Main(props) {
             </section>
         </main>
     );
-
-    // function handleEditAvatarClick() {
-    //     const popupAvatar = document.querySelector('.popup_type_avatar');
-    //     popupAvatar.classList.add('popup_opened');
-    // }
-
-    // function handleEditProfileClick() {
-    //     const popupProfile = document.querySelector('.popup_type_profile');
-    //     popupProfile.classList.add('popup_opened');
-    // }
-
-    // function handleAddPlaceClick() {
-    //     const popupCard = document.querySelector('.popup_type_card');
-    //     popupCard.classList.add('popup_opened');
-    // }
 }
 
 export default Main;

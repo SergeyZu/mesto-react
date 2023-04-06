@@ -29,6 +29,17 @@ function App() {
         // popupCard.classList.add('popup_opened');
     };
 
+    // const [isAnyPopupOpen, setIsAnyPopupOpen] = React.useState('popup_opened');
+    // const closeAllPopups = () => {
+    //     setIsAnyPopupOpen('');
+    // };
+
+    const closeAllPopups = () => {
+        setIsEditAvatarPopupOpen(false);
+        setisEditProfilePopupOpen(false);
+        setisAddPlacePopupOpen(false);
+    };
+
     return (
         <div className="page">
             <Header />
@@ -41,6 +52,7 @@ function App() {
 
             <PopupWithForm
                 isOpen={isEditAvatarPopupOpen}
+                onClose={closeAllPopups}
                 name="avatar"
                 title="Обновить аватар"
                 btnText="Сохранить"
@@ -60,6 +72,7 @@ function App() {
 
             <PopupWithForm
                 isOpen={isEditProfilePopupOpen}
+                onClose={closeAllPopups}
                 name="profile"
                 title="Редактировать профиль"
                 btnText="Сохранить"
@@ -94,6 +107,7 @@ function App() {
 
             <PopupWithForm
                 isOpen={isAddPlacePopupOpen}
+                onClose={closeAllPopups}
                 name="card"
                 title="Новое место"
                 btnText="Создать"
