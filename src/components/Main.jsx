@@ -1,4 +1,24 @@
+import React from 'react';
+import { useEffect } from 'react';
+import { api } from '../utils/Api.js';
+
 function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
+    const [userName, setUserName] = React.useState('');
+    const [userDescription, setUserDescription] = React.useState('');
+    const [userAvatar, setUserAvatar] = React.useState('');
+
+    useEffect(() => {
+        api.getUserData()
+            .then((res) => {
+                setUserName(res.name);
+                setUserDescription(res.about);
+                setUserAvatar(res.avatar);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    });
+
     return (
         <main className="content">
             <section className="profile page__profile">
@@ -6,7 +26,8 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
                     <div className="profile__avatar-container">
                         <img
                             className="profile__avatar"
-                            src="<%=require('./images/cousteau.jpg')%>"
+                            src={userAvatar}
+                            // style={{ backgroundImage: `url(${userAvatar})` }}
                             alt="Аватар"
                         />
                         <div className="profile__avatar-edit-button-container">
@@ -18,15 +39,13 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
                         </div>
                     </div>
                     <div className="profile__text-block">
-                        <h1 className="profile__title">Жак-Ив Кусто</h1>
+                        <h1 className="profile__title">{userName}</h1>
                         <button
                             className="profile__edit-button"
                             type="button"
                             onClick={onEditProfile}
                         ></button>
-                        <p className="profile__subtitle">
-                            Исследователь океана
-                        </p>
+                        <p className="profile__subtitle">{userDescription}</p>
                     </div>
                 </div>
 
