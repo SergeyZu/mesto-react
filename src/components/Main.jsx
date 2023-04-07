@@ -2,7 +2,7 @@ import React from 'react';
 import { api } from '../utils/Api.js';
 import Card from './Card.jsx';
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
+function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
     const [userName, setUserName] = React.useState('');
     const [userDescription, setUserDescription] = React.useState('');
     const [userAvatar, setUserAvatar] = React.useState('');
@@ -17,10 +17,6 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
                 setUserDescription(userData.about);
                 setUserAvatar(userData.avatar);
                 setCards(cards);
-                // console.log(res);
-                // userId = userData._id;
-                // userInfo.setUserInfo(userData);
-                // cardSection.renderInitialItems(initialCards);
             })
             .catch((err) => {
                 console.log(err);
@@ -35,7 +31,6 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
                         <img
                             className="profile__avatar"
                             src={userAvatar}
-                            // style={{ backgroundImage: `url(${userAvatar})` }}
                             alt="Аватар"
                         />
                         <div className="profile__avatar-edit-button-container">
@@ -69,28 +64,8 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace }) {
                         <Card
                             card={card}
                             key={card._id}
-                            // onCardClick={onCardClick}
+                            onCardClick={onCardClick}
                         />
-                        // <li key={card._id} class="card">
-                        //     <img
-                        //         class="card__image"
-                        //         src={card.link}
-                        //         alt={card.name}
-                        //     />
-                        //     <button class="card__trash" type="button"></button>
-                        //     <div class="card__bottom">
-                        //         <h2 class="card__title">{card.name}</h2>
-                        //         <div class="card__like-block">
-                        //             <button
-                        //                 class="card__like card__liked"
-                        //                 type="button"
-                        //             ></button>
-                        //             <div class="card__likes-qty">
-                        //                 {card.likes.length}
-                        //             </div>
-                        //         </div>
-                        //     </div>
-                        // </li>
                     ))}
                 </ul>
             </section>

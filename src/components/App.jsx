@@ -32,7 +32,7 @@ function App() {
         setIsEditAvatarPopupOpen(false);
         setisEditProfilePopupOpen(false);
         setisAddPlacePopupOpen(false);
-        setSelectedCard(false);
+        setSelectedCard({});
     };
 
     return (
@@ -42,6 +42,7 @@ function App() {
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
                 onEditAvatar={handleEditAvatarClick}
+                onCardClick={handleCardClick}
             />
             <Footer />
 
@@ -139,24 +140,7 @@ function App() {
                 btnText="Да"
             />
 
-            <ImagePopup />
-
-            {/* <template id="card-template">
-                <li className="card">
-                    <img className="card__image" src="value" alt="#" />
-                    <button className="card__trash" type="button"></button>
-                    <div className="card__bottom">
-                        <h2 className="card__title"></h2>
-                        <div className="card__like-block">
-                            <button
-                                className="card__like card__liked"
-                                type="button"
-                            ></button>
-                            <div className="card__likes-qty">0</div>
-                        </div>
-                    </div>
-                </li>
-            </template> */}
+            <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         </div>
     );
 }

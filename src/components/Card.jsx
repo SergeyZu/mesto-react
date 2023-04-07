@@ -1,23 +1,28 @@
 import React from 'react';
 
-function Card({ card }) {
+function Card(props) {
+    function handleClick() {
+        props.onCardClick(props.card);
+    }
     return (
-        <li key={card._id} class="card">
+        <li className="card">
             <img
-                class="card__image"
-                src={card.link}
-                // style={{ backgroundImage: `url(${card.link})` }}
-                alt={card.name}
+                className="card__image"
+                src={props.card.link}
+                alt={props.card.name}
+                onClick={handleClick}
             />
-            <button class="card__trash" type="button"></button>
-            <div class="card__bottom">
-                <h2 class="card__title">{card.name}</h2>
-                <div class="card__like-block">
+            <button className="card__trash" type="button"></button>
+            <div className="card__bottom">
+                <h2 className="card__title">{props.card.name}</h2>
+                <div className="card__like-block">
                     <button
-                        class="card__like card__liked"
+                        className="card__like card__liked"
                         type="button"
                     ></button>
-                    <div class="card__likes-qty">{card.likes.length}</div>
+                    <div className="card__likes-qty">
+                        {props.card.likes.length}
+                    </div>
                 </div>
             </div>
         </li>
