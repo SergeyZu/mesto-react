@@ -10,34 +10,29 @@ function App() {
         React.useState(false);
     const handleEditAvatarClick = () => {
         setIsEditAvatarPopupOpen(true);
-        // const popupAvatar = document.querySelector('.popup_type_avatar');
-        // popupAvatar.classList.add('popup_opened');
     };
 
     const [isEditProfilePopupOpen, setisEditProfilePopupOpen] =
         React.useState(false);
     const handleEditProfileClick = () => {
         setisEditProfilePopupOpen(true);
-        // const popupProfile = document.querySelector('.popup_type_profile');
-        // popupProfile.classList.add('popup_opened');
     };
 
     const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
     const handleAddPlaceClick = () => {
         setisAddPlacePopupOpen(true);
-        // const popupCard = document.querySelector('.popup_type_card');
-        // popupCard.classList.add('popup_opened');
     };
 
-    // const [isAnyPopupOpen, setIsAnyPopupOpen] = React.useState('popup_opened');
-    // const closeAllPopups = () => {
-    //     setIsAnyPopupOpen('');
-    // };
+    const [selectedCard, setSelectedCard] = React.useState({});
+    const handleCardClick = (card) => {
+        setSelectedCard(card);
+    };
 
     const closeAllPopups = () => {
         setIsEditAvatarPopupOpen(false);
         setisEditProfilePopupOpen(false);
         setisAddPlacePopupOpen(false);
+        setSelectedCard(false);
     };
 
     return (
@@ -84,8 +79,8 @@ function App() {
                         className="popup__input popup__input_type_name"
                         name="name"
                         type="text"
-                        minlength="2"
-                        maxlength="40"
+                        minLength="2"
+                        maxLength="40"
                         required
                     />
                     <span className="popup__form-error name-input-error"></span>
@@ -97,8 +92,8 @@ function App() {
                         className="popup__input popup__input_type_about"
                         name="about"
                         type="text"
-                        minlength="2"
-                        maxlength="200"
+                        minLength="2"
+                        maxLength="200"
                         required
                     />
                     <span className="popup__form-error about-input-error"></span>
@@ -119,8 +114,8 @@ function App() {
                         name="name"
                         type="text"
                         placeholder="Название"
-                        minlength="2"
-                        maxlength="30"
+                        minLength="2"
+                        maxLength="30"
                         required
                     />
                     <span className="popup__form-error title-input-error"></span>
@@ -146,7 +141,7 @@ function App() {
 
             <ImagePopup />
 
-            <template id="card-template">
+            {/* <template id="card-template">
                 <li className="card">
                     <img className="card__image" src="value" alt="#" />
                     <button className="card__trash" type="button"></button>
@@ -161,7 +156,7 @@ function App() {
                         </div>
                     </div>
                 </li>
-            </template>
+            </template> */}
         </div>
     );
 }
