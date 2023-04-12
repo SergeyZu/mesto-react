@@ -18,31 +18,42 @@ function App() {
   }, []);
 
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const handleEditAvatarClick = () => {
+  function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
-  };
+  }
 
   const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
-  const handleEditProfileClick = () => {
+  function handleEditProfileClick() {
     setisEditProfilePopupOpen(true);
-  };
+  }
 
   const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = useState(false);
-  const handleAddPlaceClick = () => {
+  function handleAddPlaceClick() {
     setisAddPlacePopupOpen(true);
-  };
+  }
 
   const [selectedCard, setSelectedCard] = useState({});
-  const handleCardClick = (card) => {
+  function handleCardClick(card) {
     setSelectedCard(card);
-  };
+  }
 
-  const closeAllPopups = () => {
+  function closeAllPopups() {
     setIsEditAvatarPopupOpen(false);
     setisEditProfilePopupOpen(false);
     setisAddPlacePopupOpen(false);
     setSelectedCard({});
-  };
+  }
+
+  function handleCardLike(card) {
+    // Снова проверяем, есть ли уже лайк на этой карточке
+    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+
+    // Отправляем запрос в API и получаем обновлённые данные карточки
+    // api.changeLikeCardStatus(card._id, !isLiked)
+    // .then((newCard) => {
+    //   setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
+    // });
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
