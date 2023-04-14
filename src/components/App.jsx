@@ -60,16 +60,25 @@ function App() {
     const isLiked = card.likes.some((i) => i._id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
-    api.setLike(card._id, !isLiked).then((newCard) => {
-      setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-    });
+    api
+      .setLike(card._id, !isLiked)
+      .then((newCard) => {
+        setCards((state) =>
+          state.map((c) => (c._id === card._id ? newCard : c))
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleCardDelete(card) {
     api
       .deleteCard(card._id)
-      .then((res) => {
-        console.log("res =>", res);
+      .then(() => {
+        setCards((state) => {
+          return state.filter((newCard) => newCard._id !== card._id);
+        });
       })
       .catch((err) => {
         console.log(err);
