@@ -3,21 +3,21 @@ import { api } from "../utils/Api.js";
 import Card from "./Card.jsx";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
+function Main({ cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const [cards, setCards] = useState([]);
+  // const [cards, setCards] = useState([]);
 
-  useEffect(() => {
-    api
-      .getInitialCards()
-      .then((cards) => {
-        setCards(cards);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   api
+  //     .getInitialCards()
+  //     .then((cards) => {
+  //       setCards(cards);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <main className="content">
