@@ -3,7 +3,14 @@ import { api } from "../utils/Api.js";
 import Card from "./Card.jsx";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Main({ cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
+function Main({
+  onEditAvatar,
+  onEditProfile,
+  onAddPlace,
+  cards,
+  onCardClick,
+  handleCardLike,
+}) {
   const currentUser = useContext(CurrentUserContext);
 
   // const [cards, setCards] = useState([]);
@@ -57,7 +64,12 @@ function Main({ cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
       <section className="page__cards">
         <ul className="cards">
           {cards.map((card) => (
-            <Card card={card} key={card._id} onCardClick={onCardClick} />
+            <Card
+              card={card}
+              key={card._id}
+              onCardClick={onCardClick}
+              onCardLike={handleCardLike}
+            />
           ))}
         </ul>
       </section>
