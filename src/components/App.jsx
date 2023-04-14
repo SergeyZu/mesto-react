@@ -3,6 +3,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
+import EditProfilePopup from "./EditProfilePopup";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/Api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
@@ -135,7 +136,12 @@ function App() {
           </div>
         </PopupWithForm>
 
-        <PopupWithForm
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+        />
+
+        {/* <PopupWithForm
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           name="profile"
@@ -168,7 +174,7 @@ function App() {
             />
             <span className="popup__form-error about-input-error"></span>
           </div>
-        </PopupWithForm>
+        </PopupWithForm> */}
 
         <PopupWithForm
           isOpen={isAddPlacePopupOpen}
