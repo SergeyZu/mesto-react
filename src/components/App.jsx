@@ -3,6 +3,7 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
+import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/Api";
@@ -128,7 +129,12 @@ function App() {
         />
         <Footer />
 
-        <PopupWithForm
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+        />
+
+        {/* <PopupWithForm
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           name="avatar"
@@ -146,7 +152,7 @@ function App() {
             />
             <span className="popup__form-error avatar-input-error"></span>
           </div>
-        </PopupWithForm>
+        </PopupWithForm> */}
 
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
