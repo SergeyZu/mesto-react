@@ -7,15 +7,21 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
 import ImagePopup from "./ImagePopup";
-import { api } from "../utils/Api";
+import { api } from "../utils/api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
+
   useEffect(() => {
-    api.getUserData().then((currentUser) => {
-      setCurrentUser(currentUser);
-    });
+    api
+      .getUserData()
+      .then((currentUser) => {
+        setCurrentUser(currentUser);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const [cards, setCards] = useState([]);
