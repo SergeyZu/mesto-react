@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
 import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
+import AddPlacePopup from "./AddPlacePopup";
 import ImagePopup from "./ImagePopup";
 import { api } from "../utils/Api";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
@@ -157,7 +158,9 @@ function App() {
           onUpdateUser={handleUpdateUser}
         />
 
-        <PopupWithForm
+        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+
+        {/* <PopupWithForm
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           name="card"
@@ -188,7 +191,7 @@ function App() {
             />
             <span className="popup__form-error link-input-error"></span>
           </div>
-        </PopupWithForm>
+        </PopupWithForm> */}
 
         <PopupWithForm name="delete-card" title="Вы уверены?" btnText="Да" />
 
