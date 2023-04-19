@@ -4,24 +4,24 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  // Подписка на контекст
+  const currentUser = useContext(CurrentUserContext);
+
   function handleNameChange(evt) {
     setName(evt.target.value);
   }
 
-  const [description, setDescription] = useState("");
   function handleDescriptionChange(evt) {
     setDescription(evt.target.value);
   }
-
-  // Подписка на контекст
-  const currentUser = useContext(CurrentUserContext);
 
   // После загрузки текущего пользователя из API
   // его данные будут использованы в управляемых компонентах.
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, isOpen]);
 
   function handleSubmit(evt) {
     // Запрещаем браузеру переходить по адресу формы

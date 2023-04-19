@@ -12,6 +12,11 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
+  const [cards, setCards] = useState([]);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+  const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState({});
 
   useEffect(() => {
     api
@@ -22,10 +27,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
 
-  const [cards, setCards] = useState([]);
-  useEffect(() => {
     api
       .getInitialCards()
       .then((cards) => {
@@ -36,22 +38,18 @@ function App() {
       });
   }, []);
 
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
   }
 
-  const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = useState(false);
   function handleEditProfileClick() {
     setisEditProfilePopupOpen(true);
   }
 
-  const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = useState(false);
   function handleAddPlaceClick() {
     setisAddPlacePopupOpen(true);
   }
 
-  const [selectedCard, setSelectedCard] = useState({});
   function handleCardClick(card) {
     setSelectedCard(card);
   }

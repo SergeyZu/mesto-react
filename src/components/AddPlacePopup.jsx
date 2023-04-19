@@ -3,11 +3,12 @@ import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
   const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+
   function handleTitleChange(evt) {
     setTitle(evt.target.value);
   }
 
-  const [link, setLink] = useState("");
   function handleLinkChange(evt) {
     setLink(evt.target.value);
   }
