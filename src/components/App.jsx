@@ -14,7 +14,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   useEffect(() => {
     api.getUserData().then((currentUser) => {
-      console.log(currentUser);
       setCurrentUser(currentUser);
     });
   }, []);
@@ -109,9 +108,6 @@ function App() {
       .then((userData) => {
         setCurrentUser(userData);
         closeAllPopups();
-        // userInfo.setUserInfo(res);
-        // console.log(res);
-        // avatarPopup.close();
       })
       .catch((err) => {
         console.log(err);
@@ -124,6 +120,18 @@ function App() {
 
       .then((userData) => {
         setCurrentUser(userData);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleAddPlaceSubmit(data) {
+    api
+      .addCard(data)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -158,7 +166,11 @@ function App() {
           onUpdateUser={handleUpdateUser}
         />
 
-        <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+          onAddPlace={handleAddPlaceSubmit}
+        />
 
         {/* <PopupWithForm
           isOpen={isAddPlacePopupOpen}
