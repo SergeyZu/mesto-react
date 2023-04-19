@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -102,9 +102,25 @@ function App() {
       });
   }
 
+  function handleUpdateAvatar(data) {
+    api
+      .changeAvatar(data.avatar)
+      .then((userData) => {
+        setCurrentUser(userData);
+        closeAllPopups();
+        // userInfo.setUserInfo(res);
+        // console.log(res);
+        // avatarPopup.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function handleUpdateUser(data) {
     api
       .setUserData(data)
+
       .then((userData) => {
         setCurrentUser(userData);
         closeAllPopups();
@@ -132,27 +148,8 @@ function App() {
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
+          onUpdateAvatar={handleUpdateAvatar}
         />
-
-        {/* <PopupWithForm
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          name="avatar"
-          title="Обновить аватар"
-          btnText="Сохранить"
-        >
-          <div className="popup__field">
-            <input
-              id="avatar-input"
-              className="popup__input popup__input_type_link"
-              name="avatar"
-              type="url"
-              placeholder="https://somewebsite.com/someimage.jpg"
-              required
-            />
-            <span className="popup__form-error avatar-input-error"></span>
-          </div>
-        </PopupWithForm> */}
 
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
