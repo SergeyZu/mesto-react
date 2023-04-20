@@ -66,7 +66,7 @@ class Api {
     });
   }
 
-  // Запрос на снятие лайка
+  // Запрос на снятие лайка:
   removeLike(cardId) {
     return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
